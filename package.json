@@ -1,0 +1,26 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "Calculator",
+  "main": "app.js",
+  "scripts": {
+    "test": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dominhhai/calculator.git"
+  },
+  "keywords": [
+    "calculator",
+    "calc"
+  ],
+  "author": "Hai Do Minh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dominhhai/calculator/issues"
+  },
+  "homepage": "https://github.com/dominhhai/calculator#readme",
+  "devDependencies": {
+    "standard": "^4.0.1"
+  }
+}
