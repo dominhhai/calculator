@@ -3,7 +3,7 @@ function isOperator (char) {
   return (char === '*') || (char === '/') || (char === '+') || (char === '-')
 }
 
-function add2Out(out, tmp) {
+function add2Out (out, tmp) {
   var j = null
   while (tmp.length > 0 && (j = tmp.pop()) !== ')') {
     out.push(j)
