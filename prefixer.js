@@ -1,6 +1,14 @@
 // infix to prefix conversion
-function isOperator (char) {
-  return (char === '*') || (char === '/') || (char === '+') || (char === '-')
+const INFIX = 'INFIX'
+const PREFIX = 'PREFIX'
+const POSTFIX = 'POSTFIX'
+
+const isOperator = require('./calc').isOperator
+
+function getExpressionType (exp) {
+  if (isOperator(exp[0])) return PREFIX
+  if (isOperator(exp[exp.length - 1])) return POSTFIX
+  return INFIX
 }
 
 function add2Out (out, tmp) {
@@ -44,4 +52,8 @@ exports = module.exports = function toPrefixNotation (exp) {
   return out.reverse().join(' ')
 }
 
-exports.isOperator = isOperator
+exports.PREFIX = PREFIX
+exports.INFIX = INFIX
+exports.POSTFIX = POSTFIX
+
+exports.getExpressionType = getExpressionType

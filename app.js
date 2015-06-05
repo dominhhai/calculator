@@ -1,9 +1,10 @@
-const toPrefix = require('./to_prefix')
+const toPrefix = require('./prefixer')
 const calc = require('./calc')
 
 module.exports = function app (exp, cb) {
   // convert to prefix notation
   exp = toPrefix(exp)
+  console.log(exp)
   var stack = []
   // scan the prefix expression from right to left
   var token = ''
@@ -13,7 +14,7 @@ module.exports = function app (exp, cb) {
       token = char + token
     }
     if ((char === ' ' || i === 0) && token.length > 0) {
-      if (toPrefix.isOperator(token)) {
+      if (calc.isOperator(token)) {
         var rst = calc(token, Number(stack.pop()), Number(stack.pop()))
         stack.push(rst)
       } else {
