@@ -1,44 +1,52 @@
-const toPrefix = require('./to_prefix')
+// TODO handle the overflow
+// ES6 support?
 
-module.exports = function cal (exp, cb) {
-  // convert to prefix notation
-  exp = toPrefix(exp)
-  var stack = []
-  // scan the prefix expression from right to left
-  var token = ''
-  for (var i = exp.length - 1; i >= 0; i--) {
-    var char = exp[i]
-    if (char !== ' ') {
-      token = char + token
-    }
-    if ((char === ' ' || i === 0) && token.length > 0) {
-      if (toPrefix.isOperator(token)) {
-        var rst = calc(token, stack.pop(), stack.pop())
-        stack.push(rst)
-      } else {
-        stack.push(token)
-      }
-      // reset token
-      token = ''
-    }
-  }
-
-  cb(stack.pop())
-}
-
-function calc (operator, o1, o2) {
-  o1 = Number(o1)
-  o2 = Number(o2)
-  switch (operator) {
-    case '*':
-      return o1 * o2
-    case '/':
-      return o1 / o2
-    case '+':
-      return o1 + o2
-    case '-':
-      return o1 - o2
-    default:
-      throw new Error('`' + operator + '` is not a valid operator')
+// define math operators
+const OPERATOR = {
+  '+': function add (o1, o2) {
+    return o1 + o2
+  },
+  '-': function substract (o1, o2) {
+    return o1 - o2
+  },
+  '*': function product (o1, o2) {
+    return o1 * o2
+  },
+  '/': function divide (o1, o2) {
+    return o1 / o2
   }
 }
+
+// define math common constants, and functions
+const MATH = Math
+
+function isOperator (token) {
+  return OPERATOR.hasOwnProperty(token)
+}
+
+function isNumber (num) {
+  return !isNaN(num)
+}
+
+function isConst (token) {
+  return MATH.hasOwnProperty(token) && isNumber(MATH[token])
+}
+
+exports = module.exports = function calc (cmd) {
+  var argv = arguments,
+      length = argv.length
+
+  if (length === 1) return MATH[cmd]
+
+  if (argv.length === 3 && isOperator(cmd)) {
+    return OPERATOR[cmd](argv[1], argv[2])
+  }
+
+  return MATH[cmd].apply(null, Array.prototype.slice.call(argv, 1))
+}
+
+exports.isOperator = isOperator
+exports.isNumber = isNumber
+exports.isConst = isConst
+exports.OPERATOR = OPERATOR
+exports.MATH = MATH
