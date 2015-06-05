@@ -45,8 +45,8 @@ exports = module.exports = function calc (cmd) {
   return MATH[cmd].apply(null, Array.prototype.slice.call(argv, 1))
 }
 
+exports.OPERATOR = OPERATOR
+exports.MATH = MATH
 exports.isOperator = isOperator
 exports.isNumber = isNumber
 exports.isConst = isConst
-exports.OPERATOR = OPERATOR
-exports.MATH = MATH
