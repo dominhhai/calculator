@@ -10,6 +10,7 @@ module.exports = function app (exp, cb) {
     // convert to prefix notation
     if (type === toPrefix.INFIX) {
       exp = toPrefix(exp)
+      console.log(exp)
     }    
     rst = prefixCalc(exp)
   }

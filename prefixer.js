@@ -11,6 +11,10 @@ function getExpressionType (exp) {
   return INFIX
 }
 
+function isLowerPrecedence (o1, o2) {
+  return (o1 === '+' || o1 === '-') && (o2 === '*' || o2 === '/')
+}
+
 function add2Out (out, tmp) {
   var j = null
   while (tmp.length > 0 && (j = tmp.pop()) !== ')') {
@@ -35,6 +39,10 @@ exports = module.exports = function toPrefixNotation (exp) {
         tmp.push(char)
       }
       if (isOperator(token)) {
+        while (tmp.length > 0 && isOperator(tmp[tmp.length - 1]) 
+                && isLowerPrecedence(token, tmp[tmp.length - 1])) {
+          out.push(tmp.pop())
+        }
         tmp.push(token)
       } else {
         out.push(token)
