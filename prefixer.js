@@ -19,13 +19,6 @@ function add2Out (out, tmp) {
 }
 
 exports = module.exports = function toPrefixNotation (exp) {
-  var type = getExpressionType(exp)
-  
-  return type === PREFIX ? exp : (type === INFIX ? convertInfix(exp) : convertPostfix(exp))
-}
-
-function convertInfix(exp) {
-  console.log('conversion')
   var out = [],
       tmp = []
 
@@ -59,11 +52,6 @@ function convertInfix(exp) {
 
   return out.reverse().join(' ')
 }
-
-function convertPostfix(exp) {
-  return exp
-}
-
 
 exports.PREFIX = PREFIX
 exports.INFIX = INFIX
