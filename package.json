@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/dominhhai/calculator#readme",
   "devDependencies": {
+    "grunt": "^0.4.5",
     "standard": "^4.0.1",
     "tape": "^4.0.0"
   },
