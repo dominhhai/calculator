@@ -34,6 +34,14 @@ module.exports = function (test) {
       t.equal(rst, 2)
     })
 
+    app('-1 - -3 + 2^4', function (rst) {
+      t.equal(rst, 18)
+    })
+
+    app('-1 - -3 + pow[2, 4]', function (rst) {
+      t.equal(rst, 18)
+    })
+
     t.end()
   })
 }
