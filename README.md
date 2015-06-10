@@ -1,8 +1,8 @@
 # calculator
 Smart Calculator for Nodejs without using `eval` function. 
 
-Focus on keeping the native of math expression.
-Supported full [JS's Math functions](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Math) with some extension functions. 
+Focus on keeping the native math expression.
+Full-Supported the [JS's Math functions](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Math) with some extension functions. 
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard) 
 [![build status](https://secure.travis-ci.org/dominhhai/calculator.svg)](http://travis-ci.org/dominhhai/calculator)
