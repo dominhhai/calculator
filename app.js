@@ -1,24 +1,24 @@
-const toPrefix = require('./prefixer')
+const postfixer = require('./postfixer')
 const calc = require('./calc')
 
 module.exports = function app (exp, cb) {
-  var type = toPrefix.getExpressionType(exp)
+  var type = postfixer.getExpressionType(exp)
   var rst = null
-  if (type === toPrefix.POSTFIX) {
-    rst = postfixCalc(exp)
+  if (type === postfixer.PREFIX) {
+    rst = calcPrefix(exp)
   } else {
-    // convert to prefix notation
-    if (type === toPrefix.INFIX) {
-      exp = toPrefix(exp)
+    // convert to postfix notation
+    if (type === postfixer.INFIX) {
+      exp = postfixer(exp)
       console.log(exp)
-    }    
-    rst = prefixCalc(exp)
+    }
+    rst = calcPostfix(exp)
   }
 
   cb(rst)
 }
 
-function prefixCalc(exp) {
+function calcPrefix(exp) {
   var stack = []
   // scan the prefix expression from right to left
   var token = ''
@@ -42,9 +42,9 @@ function prefixCalc(exp) {
   return stack.pop()
 }
 
-function postfixCalc (exp) {
+function calcPostfix (exp) {
   var stack = []
-  // scan the prefix expression from right to left
+  // scan the postfix expression from left to right
   var token = ''
 
   for (var i = 0; i < exp.length; i ++) {
