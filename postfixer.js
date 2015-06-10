@@ -10,14 +10,20 @@ const OPEN = '(',
 const isOperator = require('./calc').isOperator
 
 function getExpressionType (exp) {
-  if (isOperator(exp[0])) return PREFIX
   if (isOperator(exp[exp.length - 1])) return POSTFIX
+  if (isOperator(exp[0])) {
+    // negative number -> infix notation
+    if (exp.length > 1 && exp[1] >= '0' && exp[1] <= '9') return INFIX
+    return PREFIX
+  }
+
   return INFIX
 }
 
 function getPriority (op) {
   if (op === '+' || op === '-') return 1
   if (op === '*' || op === '/') return 2
+  if (op === '^') return 3
   return 0
 }
 

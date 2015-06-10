@@ -21,6 +21,7 @@ module.exports = function (test) {
     t.equal(postfixer('1 + (-2)'), '1 -2 +')
     t.equal(postfixer('1 + - 2'), '1 -2 +')
     t.equal(postfixer('-1 + - 2'), '-1 -2 +')
+    t.equal(postfixer('-1 - -3'), '-1 -3 -')
 
     t.end()
   })

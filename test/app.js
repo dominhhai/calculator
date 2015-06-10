@@ -26,6 +26,14 @@ module.exports = function (test) {
       t.equal(rst, -2)
     })
 
+    app('1 - -3', function (rst) {
+      t.equal(rst, 4)
+    })
+
+    app('-1 - -3', function (rst) {
+      t.equal(rst, 2)
+    })
+
     t.end()
   })
 }

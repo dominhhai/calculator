@@ -14,6 +14,9 @@ const OPERATOR = {
   },
   '/': function divide (o1, o2) {
     return o1 / o2
+  },
+  '^': function pow (o1, o2) {
+    return Math.pow(o1, o2)
   }
 }
 
