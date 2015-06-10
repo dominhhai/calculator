@@ -41,6 +41,7 @@ exports = module.exports = function toPostfixNotation (exp) {
   var token = ''
   for (var i = 0, j = exp.length; i < j; i++) {
     var cur = exp[i]
+    if (cur === SPACE) continue
 
     if (isOperator(cur)) {
       var curPri = getPriority(cur)
@@ -76,7 +77,7 @@ exports = module.exports = function toPostfixNotation (exp) {
       }
 
       disableNega()
-    } else if (cur !== SPACE) {
+    } else {
       token += cur
 
       disableNega()
