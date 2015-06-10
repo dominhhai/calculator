@@ -10,7 +10,6 @@ module.exports = function app (exp, cb) {
     // convert to postfix notation
     if (type === postfixer.INFIX) {
       exp = postfixer(exp)
-      console.log(exp)
     }
     rst = calcPostfix(exp)
   }

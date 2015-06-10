@@ -18,6 +18,10 @@ module.exports = function (test) {
     t.equal(postfixer('(PI     + 2/ 10) * 3 + (E-19 )'), 'PI 2 10 / + 3 * E 19 - +')
     t.equal(postfixer('(1 + 2 - 3*(PI + 10))'), '1 2 + 3 PI 10 + * -')
 
+    t.equal(postfixer('1 + (-2)'), '1 -2 +')
+    t.equal(postfixer('1 + - 2'), '1 -2 +')
+    t.equal(postfixer('-1 + - 2'), '-1 -2 +')
+
     t.end()
   })
 }

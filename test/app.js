@@ -19,7 +19,11 @@ module.exports = function (test) {
 
   test('infix test', function (t) {
     app('1+3', function (rst) {
-      t.equal(rst, 6)
+      t.equal(rst, 4)
+    })
+
+    app('1+(-3)', function (rst) {
+      t.equal(rst, -2)
     })
 
     t.end()
