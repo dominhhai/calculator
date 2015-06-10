@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "Calculator",
   "main": "app.js",
+  "bin": {
+    "scalc": "./cli.js"
+  },
   "scripts": {
-    "test": "tape test/*.js | faucet",
-    "start": "standard"
+    "start": "node cli.js",
+    "test": "standard && tape test/*.js | faucet"
   },
   "repository": {
     "type": "git",
