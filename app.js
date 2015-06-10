@@ -17,7 +17,7 @@ module.exports = function app (exp, cb) {
   cb(rst)
 }
 
-function calcPrefix(exp) {
+function calcPrefix (exp) {
   var stack = []
   // scan the prefix expression from right to left
   var token = ''
@@ -46,7 +46,7 @@ function calcPostfix (exp) {
   // scan the postfix expression from left to right
   var token = ''
 
-  for (var i = 0; i < exp.length; i ++) {
+  for (var i = 0; i < exp.length; i++) {
     var char = exp[i]
     if (char !== ' ') {
       token = token + char
@@ -67,7 +67,7 @@ function calcPostfix (exp) {
   return stack.pop()
 }
 
-function getValue(exp) {
+function getValue (exp) {
   if (calc.isNumber(exp)) return Number(exp)
   var i = exp.indexOf('[')
   if (i === -1) return calc(exp)

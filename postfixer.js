@@ -90,7 +90,7 @@ exports = module.exports = function toPostfixNotation (exp) {
 
   // add operate to output
   function addOperate () {
-    if (token.length > 0){
+    if (token.length > 0) {
       out.push(token)
       token = ''
     }

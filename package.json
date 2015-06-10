@@ -4,7 +4,8 @@
   "description": "Calculator",
   "main": "app.js",
   "scripts": {
-    "test": "tape test/test.js"
+    "test": "tape test/*.js | faucet",
+    "start": "standard"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/dominhhai/calculator#readme",
   "devDependencies": {
+    "faucet": "0.0.1",
     "grunt": "^0.4.5",
     "standard": "^4.0.1",
     "tape": "^4.0.0"
