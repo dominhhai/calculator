@@ -7,6 +7,11 @@ const OPEN = '(',
       CLOSE = ')',
       SPACE = ' '
 
+const MATH_EXTEND = {
+  '[': ']',
+  '|': '|'
+}
+
 const isOperator = require('./calc').isOperator
 
 function getExpressionType (exp) {
@@ -36,14 +41,25 @@ exports = module.exports = function toPostfixNotation (exp) {
   // 2. after `(`
   // 3. after an operator
   var nega = true
+  // skip handle when meet Math's functions
+  var skip = null
 
   var token = ''
   for (var i = 0, j = exp.length; i < j; i++) {
     var cur = exp[i]
+
     if (cur === SPACE) continue
+
+    // handle Math's functions
+    if (skip) {
+      token += cur
+      if (cur === MATH_EXTEND[skip]) skip = null
+      continue
+    }
 
     if (isOperator(cur)) {
       var curPri = getPriority(cur)
+
       if (nega) {
         if (curPri === 1) { // negative or positive number
           token = cur + token
@@ -80,6 +96,7 @@ exports = module.exports = function toPostfixNotation (exp) {
       token += cur
 
       disableNega()
+      if (MATH_EXTEND.hasOwnProperty(cur)) skip = cur
     }
   }
   // final token

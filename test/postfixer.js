@@ -19,9 +19,12 @@ test('infix to postfix test', function (t) {
   t.equal(postfixer('(1 + 2 - 3*(PI + 10))'), '1 2 + 3 PI 10 + * -')
 
   t.equal(postfixer('1 + (-2)'), '1 -2 +')
+  t.equal(postfixer('-1 + 2 + -3'), '-1 2 + -3 +')
   t.equal(postfixer('1 + - 2'), '1 -2 +')
   t.equal(postfixer('-1 + - 2'), '-1 -2 +')
   t.equal(postfixer('-1 - -3'), '-1 -3 -')
+  t.equal(postfixer('|-1| - -3'), '|-1| -3 -')
+  t.equal(postfixer('abs[-1] - -3'), 'abs[-1] -3 -')
 
   t.end()
 })

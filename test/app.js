@@ -46,5 +46,17 @@ test('infix test', function (t) {
     t.equal(rst, 28)
   })
 
+  app('-1 - abs[-3] + 2^5', function (rst) {
+    t.equal(rst, 28)
+  })
+
+  app('-1 - abs[-3] + pow[2, 5]', function (rst) {
+    t.equal(rst, 28)
+  })
+
+  app('+ - -1 |3| 2^5', function (rst) {
+    t.equal(rst, 28)
+  })
+
   t.end()
 })
