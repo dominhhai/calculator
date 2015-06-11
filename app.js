@@ -69,14 +69,22 @@ function calcPostfix (exp) {
 
 function getValue (exp) {
   if (calc.isNumber(exp)) return Number(exp)
-  var i = exp.indexOf('[')
-  if (i === -1) return calc(exp)
-  var func = exp.substring(0, i),
-      args = exp.substring(i + 1, exp.length - 1)
-  args = args.split(',')
-  args.map(function (val) {
-    return Number(val)
-  })
-  args.unshift(func)
-  return calc.apply(null, args)
+  for (var op in calc.EXTEND) {
+    var rsl = calc.EXTEND[op](exp)
+    if (rsl !== null) {
+      return rsl
+    }
+  }
+
+  return calc(exp)
+  // var i = exp.indexOf('[')
+  // if (i === -1) return calc(exp)
+  // var func = exp.substring(0, i),
+  //     args = exp.substring(i + 1, exp.length - 1)
+  // args = args.split(',')
+  // args.map(function (val) {
+  //   return Number(val)
+  // })
+  // args.unshift(func)
+  // return calc.apply(null, args)
 }

@@ -1,10 +1,10 @@
 # calculator
-Smart Calculator for Nodejs without using `eval` function. 
+Smart Calculator for Nodejs without using `eval` function.
 
 Focus on keeping the native math expression.
-Full-Supported the [JS's Math functions](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Math) with some extension functions. 
+Full-Supported the [JS's Math functions](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Math) with some extension functions.
 
-[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard) 
+[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 [![build status](https://secure.travis-ci.org/dominhhai/calculator.svg)](http://travis-ci.org/dominhhai/calculator)
 [![browser support](https://ci.testling.com/dominhhai/calculator.png)](https://ci.testling.com/dominhhai/calculator)
 
@@ -16,6 +16,7 @@ abs[-1] + 2^3 = 9
 -1 + 5 = 4
 -1 + -5 = -6
 1 + -5 = -4
+-1 - |-3| + 2^5 = 28
 ```
 
 ### prefix
