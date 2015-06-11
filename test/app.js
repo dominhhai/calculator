@@ -6,6 +6,14 @@ test('prefix test', function (t) {
     t.equal(rst, 4)
   })
 
+  app('+ - -1 |3| 2^5', function (rst) {
+    t.equal(rst, 28)
+  })
+
+  app('+ - -1 |-3| 2^5', function (rst) {
+    t.equal(rst, 28)
+  })
+
   t.end()
 })
 
@@ -54,8 +62,12 @@ test('infix test', function (t) {
     t.equal(rst, 28)
   })
 
-  app('+ - -1 |3| 2^5', function (rst) {
-    t.equal(rst, 28)
+  app('-1', function (rst) {
+    t.equal(rst, -1)
+  })
+
+  app('100', function (rst) {
+    t.equal(rst, 100)
   })
 
   t.end()
