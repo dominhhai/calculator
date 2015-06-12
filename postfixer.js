@@ -27,9 +27,11 @@ function getExpressionType (exp) {
   return INFIX
 }
 
+// TODO: match with calc.js:OPERATOR ?
 function getPriority (op) {
   if (op === '+' || op === '-') return 1
   if (op === '*' || op === '/') return 2
+  if (op === '%') return 3
   return 0
 }
 
