@@ -1,7 +1,7 @@
 {
-  "name": "calculator",
+  "name": "scalc",
   "version": "1.0.0",
-  "description": "Calculator",
+  "description": "Smart Calculator for Nodejs supports all type of Polish notations.",
   "main": "app.js",
   "bin": {
     "scalc": "./cli.js"
@@ -45,6 +45,5 @@
       "ipad/6",
       "android-browser/latest"
     ]
-  },
-  "dependencies": {}
+  }
 }
