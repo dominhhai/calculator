@@ -9,6 +9,7 @@ const OPEN = '(',
 
 const MATH_EXTEND = {
   '[': ']',
+  '(': ')',
   '|': '|'
 }
 
@@ -78,11 +79,17 @@ exports = module.exports = function toPostfixNotation (exp) {
         enableNega()
       }
     } else if (cur === OPEN) {
-      addOperate()
+      // token is the math's function name
+      if (token) {
+        token += cur
+        skip = cur
+      } else {
+        addOperate()
 
-      stack.push(cur)
+        stack.push(cur)
 
-      enableNega()
+        enableNega()
+      }
     } else if (cur === CLOSE) {
       addOperate()
 
@@ -107,7 +114,7 @@ exports = module.exports = function toPostfixNotation (exp) {
 
   // add operate to output
   function addOperate () {
-    if (token.length > 0) {
+    if (token) {
       out.push(token)
       token = ''
     }

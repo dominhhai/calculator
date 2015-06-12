@@ -21,8 +21,9 @@ const OPERATOR = {
 const MATH = Math
 
 const EXTEND = {
-  '[': function math (exp) {
+  '(': function math (exp) {
     var i = exp.indexOf('[')
+    if (i === -1) i = exp.indexOf('(')
     if (i === -1) return null
     var func = exp.substring(0, i),
         args = exp.substring(i + 1, exp.length - 1)

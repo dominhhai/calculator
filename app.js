@@ -28,7 +28,7 @@ function calcPrefix (exp) {
     if (char !== ' ') {
       token = char + token
     }
-    if ((char === ' ' || i === 0) && token.length > 0) {
+    if ((char === ' ' || i === 0) && token) {
       if (calc.isOperator(token)) {
         var rst = calc(token, getValue(stack.pop()), getValue(stack.pop()))
         stack.push(rst)
@@ -53,7 +53,7 @@ function calcPostfix (exp) {
     if (char !== ' ') {
       token = token + char
     }
-    if ((char === ' ' || i === exp.length - 1) && token.length > 0) {
+    if ((char === ' ' || i === exp.length - 1) && token) {
       if (calc.isOperator(token)) {
         var o2 = getValue(stack.pop()),
             o1 = getValue(stack.pop())

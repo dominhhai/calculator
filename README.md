@@ -12,6 +12,8 @@ Full-Supported the [JS's Math functions](https://developer.mozilla.org/en/docs/W
 ```
 abs[-1] + 2 = 3
 abs[-1] + 2^3 = 9
+-10 - abs(-3) + 2^5 = 18
+-1 - abs(-3) + pow[2, 5] = 28
 (PI - 1) * 3 = 6.424777960769379
 -1 + 5 = 4
 -1 + -5 = -6
