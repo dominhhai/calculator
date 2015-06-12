@@ -7,6 +7,7 @@ const OPEN = '(',
       CLOSE = ')',
       SPACE = ' '
 
+// TODO: match with calc.js:EXTEND ?
 const MATH_EXTEND = {
   '[': ']',
   '(': ')',
