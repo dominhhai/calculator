@@ -55,8 +55,8 @@ function calcPostfix (exp) {
     }
     if ((char === ' ' || i === exp.length - 1) && token) {
       if (calc.isOperator(token)) {
-        var o2 = getValue(stack.pop()),
-            o1 = getValue(stack.pop())
+        var o2 = getValue(stack.pop())
+        var o1 = getValue(stack.pop())
         var rst = calc(token, o1, o2)
         stack.push(rst)
       } else {

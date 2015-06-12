@@ -28,8 +28,8 @@ const EXTEND = {
     var i = exp.indexOf('[')
     if (i === -1) i = exp.indexOf('(')
     if (i === -1) return null
-    var func = exp.substring(0, i),
-        args = exp.substring(i + 1, exp.length - 1)
+    var func = exp.substring(0, i)
+    var args = exp.substring(i + 1, exp.length - 1)
     args = args.split(',')
     args.map(function (val) {
       return Number(val)
@@ -40,8 +40,8 @@ const EXTEND = {
   '^': function pow (exp) {
     var i = exp.indexOf('^')
     if (i === -1) return null
-    var o1 = Number(exp.substring(0, i)),
-        o2 = Number(exp.substring(i + 1, exp.length))
+    var o1 = Number(exp.substring(0, i))
+    var o2 = Number(exp.substring(i + 1, exp.length))
     return Math.pow(o1, o2)
   },
   '|': function abs (exp) {
@@ -64,8 +64,8 @@ function isConst (token) {
 }
 
 exports = module.exports = function calc (cmd) {
-  var argv = arguments,
-      length = argv.length
+  var argv = arguments
+  var length = argv.length
 
   if (length === 1) return MATH[cmd]
 

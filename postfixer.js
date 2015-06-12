@@ -1,11 +1,11 @@
 // infix to postfix conversion
-const INFIX = 'INFIX',
-      PREFIX = 'PREFIX',
-      POSTFIX = 'POSTFIX'
+const INFIX = 'INFIX'
+const PREFIX = 'PREFIX'
+const POSTFIX = 'POSTFIX'
 
-const OPEN = '(',
-      CLOSE = ')',
-      SPACE = ' '
+const OPEN = '('
+const CLOSE = ')'
+const SPACE = ' '
 
 // TODO: match with calc.js:EXTEND ?
 const MATH_EXTEND = {
@@ -36,8 +36,8 @@ function getPriority (op) {
 }
 
 exports = module.exports = function toPostfixNotation (exp) {
-  var out = [],
-      stack = []
+  var out = []
+  var stack = []
 
   // flag for allowing negative number in the next time
   // negative number will be only existed whether
