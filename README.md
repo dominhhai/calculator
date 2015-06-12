@@ -80,12 +80,14 @@ var result = scalc(your_expression)
 # Contributing
 Feel free to send your PRs!
 
-1. Fork it
+1. Fork it ٩◔̯◔۶
 2. Install dependencies: `npm install`
 3. Test your changes: `npm test`
 3. Commit your changes: `git commit -m 'Add some feature'`
 4. Push to your repo: `git push`
-5. Submit a pull request
+5. Submit a pull request ♥‿♥
+
+✌(-‿-)✌ You can use [git-u](https://www.npmjs.com/package/git-u) for quicker clone: `git-u your_name your_repo`
 
 # License
 [MIT](https://github.com/dominhhai/calculator/blob/master/LICENSE)
