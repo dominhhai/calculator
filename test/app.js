@@ -74,6 +74,10 @@ test('infix test', function (t) {
     t.equal(rst, 18)
   })
 
+  app('-1 - abs(-3) + pow(2, 5) - 10 % 3', function (rst) {
+    t.equal(rst, 27)
+  })
+
   app('-1', function (rst) {
     t.equal(rst, -1)
   })
