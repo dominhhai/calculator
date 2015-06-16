@@ -1,6 +1,6 @@
 {
   "name": "scalc",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Smart Calculator for Nodejs supports all type of Polish notations.",
   "main": "app.js",
   "bin": {
