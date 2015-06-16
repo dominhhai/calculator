@@ -74,7 +74,7 @@ or without any quotes
 
 `scalc your_expression`
 
-E.x: `scalc "1 + 5*(PI - 10 * 2^5)"` or `scalc 1 + 5*(PI - 10 * 2^5)`
+E.x: `scalc "1 + 5*(PI - 10 * 2^5)"` or `scalc 1 + 5*[PI - 10 * 2^5]`
 
 The result will be copid to the system clipboard, so you can easily paste to anywhere.
 
