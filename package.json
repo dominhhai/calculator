@@ -8,7 +8,6 @@
   },
   "scripts": {
     "start": "node cli.js",
-    "stop": "grunt",
     "test": "standard && tape test/*.js | faucet"
   },
   "repository": {
@@ -27,9 +26,6 @@
   "homepage": "https://github.com/dominhhai/calculator#readme",
   "devDependencies": {
     "faucet": "0.0.1",
-    "grunt": "^0.4.5",
-    "grunt-cli": "^0.1.13",
-    "grunt-contrib-jshint": "^0.11.2",
     "standard": "^4.0.1",
     "tape": "^4.0.0"
   },
