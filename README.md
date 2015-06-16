@@ -76,7 +76,7 @@ or without any quotes
 
 E.x: `scalc "1 + 5*(PI - 10 * 2^5)"` or `scalc 1 + 5*[PI - 10 * 2^5]`
 
-The result will be copid to the system clipboard, so you can easily paste to anywhere.
+The result will be copied to the system clipboard, so you can easily paste to anywhere.
 
 ## API
 ```
