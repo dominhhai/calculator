@@ -16,7 +16,10 @@
   },
   "keywords": [
     "calculator",
-    "calc"
+    "calc",
+    "scalc",
+    "smart-calculator",
+    "cli-calculator"
   ],
   "author": "Hai Do Minh",
   "license": "MIT",
