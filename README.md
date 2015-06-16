@@ -65,12 +65,19 @@ Local scope:
 # Usage
 ## Command Line
 Wrap your expression with double quotes or single quotes
+
 `scalc "your_expression"`
 
+`scalc 'your_expression'`
+
 or without any quotes
+
 `scalc your_expression`
 
 E.x: `scalc "1 + 5*(PI - 10 * 2^5)"` or `scalc 1 + 5*(PI - 10 * 2^5)`
+
+The result will be copid to the system clipboard, so you can easily paste to anywhere.
+
 ## API
 ```
 var scalc = require('scalc')
