@@ -50,5 +50,15 @@ test('infix test', function (t) {
 
   t.equal(app('100'), 100)
 
+  t.equal(app('PI'), 3.141592653589793)
+
+  t.equal(app('abs(-10)'), 10)
+
+  t.equal(app('|-20|'), 20)
+
+  t.equal(app('|-20|'), 20)
+
+  t.equal(app('min(10, 20, 30)'), 10)
+
   t.end()
 })

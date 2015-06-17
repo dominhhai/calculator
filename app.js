@@ -2,8 +2,6 @@ const postfixer = require('./postfixer')
 const calc = require('./calc')
 
 module.exports = function app (exp) {
-  if (calc.isNumber(exp)) return Number(exp)
-
   var type = postfixer.getExpressionType(exp)
   var rst = null
   if (type === postfixer.PREFIX) {
@@ -16,7 +14,8 @@ module.exports = function app (exp) {
     rst = calcPostfix(exp)
   }
 
-  return rst
+  // ensure that the final result is a number
+  return getValue(rst)
 }
 
 function calcPrefix (exp) {
