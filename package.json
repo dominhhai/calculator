@@ -8,6 +8,7 @@
   },
   "scripts": {
     "start": "node cli.js",
+    "stop": "tape test/*.js | faucet",
     "test": "standard && tape test/*.js | faucet"
   },
   "repository": {

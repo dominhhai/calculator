@@ -38,8 +38,7 @@ function calcPrefix (exp) {
           args.push(o)
           o = stack.pop()
         }
-        var rst = Math[token.substr(postfixer.MATH_EP.length)].apply(null, args)
-        stack.push(rst)
+        stack.push(Math[token.substr(postfixer.MATH_EP.length)].apply(null, args))
       } else {
         stack.push(token)
       }
@@ -75,8 +74,7 @@ function calcPostfix (exp) {
           o = stack.pop()
         }
         args.reverse()
-        var rst = Math[token.substr(0, token.length - postfixer.MATH_EP.length)].apply(null, args)
-        stack.push(rst)
+        stack.push(Math[token.substr(0, token.length - postfixer.MATH_EP.length)].apply(null, args))
       } else {
         stack.push(token)
       }

@@ -28,3 +28,23 @@ test('infix to postfix test', function (t) {
 
   t.end()
 })
+
+test('func: infix to postfix test', function (t) {
+  t.equal(postfixer('abs(1 - 2)'), '. 1 2 - abs.')
+  // t.equal(postfixer('1 + 2 * 3'), '1 2 3 * +')
+  // t.equal(postfixer('(1 + 2) * 3'), '1 2 + 3 *')
+  // t.equal(postfixer('(abs[1] + 2) * 3 + E'), 'abs[1] 2 + 3 * E +')
+  // t.equal(postfixer('(PI     + 2) * 3 + E'), 'PI 2 + 3 * E +')
+  // t.equal(postfixer('(PI     + 2/ 10) * 3 + (E-19 )'), 'PI 2 10 / + 3 * E 19 - +')
+  // t.equal(postfixer('(1 + 2 - 3*(PI + 10))'), '1 2 + 3 PI 10 + * -')
+  //
+  // t.equal(postfixer('1 + (-2)'), '1 -2 +')
+  // t.equal(postfixer('-1 + 2 + -3'), '-1 2 + -3 +')
+  // t.equal(postfixer('1 + - 2'), '1 -2 +')
+  // t.equal(postfixer('-1 + - 2'), '-1 -2 +')
+  // t.equal(postfixer('-1 - -3'), '-1 -3 -')
+  // t.equal(postfixer('|-1| - -3'), '|-1| -3 -')
+  // t.equal(postfixer('abs[-1] - -3'), 'abs[-1] -3 -')
+
+  t.end()
+})
