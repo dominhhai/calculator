@@ -3,7 +3,7 @@
 if (process.argv.length < 3) {
   var version = require('./package').version
   console.error('Smart Calculator for Nodejs supports all type of Polish notations.\n')
-  console.error('Version: ', version,'\n')
+  console.error('Version:', version, '\n')
   console.error('Usage\n\n1. Command Line\n')
   console.error('    $ scalc "your_expression"\n\n    or\n')
   console.error('    $ scalc \'your_expression\'\n\n    or\n')
