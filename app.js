@@ -3,6 +3,7 @@ const calc = require('./calc')
 
 module.exports = function app (exp) {
   var type = postfixer.getExpressionType(exp)
+  console.log(type)
   var rst = null
   if (type === postfixer.PREFIX) {
     rst = calcPrefix(exp)
@@ -57,6 +58,16 @@ function calcPostfix (exp) {
         var o2 = getValue(stack.pop())
         var o1 = getValue(stack.pop())
         var rst = calc(token, o1, o2)
+        stack.push(rst)
+      } else if (token[token.length - 1] === '(') {
+        var args = []
+        var o = stack.pop()
+        while (o !== ')') {
+          args.push(o)
+          o = stack.pop()
+        }
+        args.reverse()
+        var rst = Math[token.substr(0, token.length - 1)].apply(null, args)
         stack.push(rst)
       } else {
         stack.push(token)

@@ -17,7 +17,7 @@ const MATH_EXTEND = {
 const isOperator = require('./calc').isOperator
 
 function getExpressionType (exp) {
-  if (isOperator(exp[exp.length - 1])) return POSTFIX
+  if (isOperator(exp[exp.length - 1]) || exp[exp.length - 1] === '(') return POSTFIX
   if (isOperator(exp[0])) {
     // negative number -> infix notation
     if (exp.length > 1 && exp[1] >= '0' && exp[1] <= '9') return INFIX
