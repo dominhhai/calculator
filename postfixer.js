@@ -59,9 +59,12 @@ exports = module.exports = function toPostfixNotation (exp) {
 
     // handle Math's functions
     if (skip) {
-      token += cur
-      if (cur === MATH_EXTEND[skip]) skip = null
-      continue
+      if (cur === MATH_EXTEND[skip]) {
+        removeFunction()
+        continue
+      } else if (cur === ',') {
+        
+      }
     }
 
     if (isOperator(cur)) {
@@ -87,15 +90,14 @@ exports = module.exports = function toPostfixNotation (exp) {
     } else if (cur === OPEN) {
       // token is the math's function name
       if (token) {
-        token += cur
-        skip = cur
+        addFunction(cur)
       } else {
         addOperate()
 
         stack.push(cur)
-
-        enableNega()
       }
+
+      enableNega()
     } else if (cur === CLOSE) {
       addOperate()
 
@@ -106,10 +108,13 @@ exports = module.exports = function toPostfixNotation (exp) {
 
       disableNega()
     } else {
-      token += cur
-
-      disableNega()
-      if (MATH_EXTEND.hasOwnProperty(cur)) skip = cur
+      if (MATH_EXTEND.hasOwnProperty(cur)) {
+        addFunction(cur)
+        enableNega()
+      } else {
+        token += cur
+        disableNega()
+      }
     }
   }
   // final token
@@ -124,6 +129,25 @@ exports = module.exports = function toPostfixNotation (exp) {
       out.push(token)
       token = ''
     }
+  }
+
+  function addFunction (cur) {
+    out.push(MATH_EP)
+    if (!token) token = 'abs'
+    stack.push(token + MATH_EP)
+    token = ''
+    skip = cur
+  }
+
+  function removeFunction () {
+    out.push(token)
+    while (stack.length > 0) {
+      var o = stack.pop()
+      out.push(o)
+      if (o.substr(o.length - MATH_EP.length) === MATH_EP) break
+    }
+    token = ''
+    skip = null
   }
 
   function enableNega () {

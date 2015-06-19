@@ -11,6 +11,7 @@ module.exports = function app (exp) {
     if (type === postfixer.INFIX) {
       exp = postfixer(exp)
     }
+    console.log(exp)
     rst = calcPostfix(exp)
   }
 
