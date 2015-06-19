@@ -3,7 +3,6 @@ const calc = require('./calc')
 
 module.exports = function app (exp) {
   var type = postfixer.getExpressionType(exp)
-  console.log(type)
   var rst = null
   if (type === postfixer.PREFIX) {
     rst = calcPrefix(exp)
@@ -32,6 +31,15 @@ function calcPrefix (exp) {
       if (calc.isOperator(token)) {
         var rst = calc(token, getValue(stack.pop()), getValue(stack.pop()))
         stack.push(rst)
+      } else if (token.length > postfixer.MATH_EP.length && token.substr(0, postfixer.MATH_EP.length) === postfixer.MATH_EP) {
+        var args = []
+        var o = stack.pop()
+        while (o !== postfixer.MATH_EP) {
+          args.push(o)
+          o = stack.pop()
+        }
+        var rst = Math[token.substr(postfixer.MATH_EP.length)].apply(null, args)
+        stack.push(rst)
       } else {
         stack.push(token)
       }
@@ -59,15 +67,15 @@ function calcPostfix (exp) {
         var o1 = getValue(stack.pop())
         var rst = calc(token, o1, o2)
         stack.push(rst)
-      } else if (token[token.length - 1] === '(') {
+      } else if (token.length > postfixer.MATH_EP.length && token.substr(token.length - postfixer.MATH_EP.length) === postfixer.MATH_EP) {
         var args = []
         var o = stack.pop()
-        while (o !== ')') {
+        while (o !== postfixer.MATH_EP) {
           args.push(o)
           o = stack.pop()
         }
         args.reverse()
-        var rst = Math[token.substr(0, token.length - 1)].apply(null, args)
+        var rst = Math[token.substr(0, token.length - postfixer.MATH_EP.length)].apply(null, args)
         stack.push(rst)
       } else {
         stack.push(token)

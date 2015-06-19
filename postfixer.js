@@ -14,11 +14,14 @@ const MATH_EXTEND = {
   '|': '|'
 }
 
+// math function endpoint
+const MATH_EP = '.'
+
 const isOperator = require('./calc').isOperator
 
 function getExpressionType (exp) {
-  if (isOperator(exp[exp.length - 1]) || exp[exp.length - 1] === '(') return POSTFIX
-  if (isOperator(exp[0])) {
+  if (isOperator(exp[exp.length - 1]) || (exp.length > 2 && exp[exp.length - 1] === MATH_EP && exp[exp.length - 2] !== ' ')) return POSTFIX
+  if (isOperator(exp[0]) || exp[0] === MATH_EP) {
     // negative number -> infix notation
     if (exp.length > 1 && exp[1] >= '0' && exp[1] <= '9') return INFIX
     return PREFIX
@@ -141,5 +144,6 @@ exports = module.exports = function toPostfixNotation (exp) {
 exports.PREFIX = PREFIX
 exports.INFIX = INFIX
 exports.POSTFIX = POSTFIX
+exports.MATH_EP = MATH_EP
 
 exports.getExpressionType = getExpressionType
