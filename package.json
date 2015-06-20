@@ -8,7 +8,6 @@
   },
   "scripts": {
     "start": "node cli.js",
-    "stop": "tape test/2-postfixer.js | faucet",
     "test": "standard && tape test/*.js | faucet"
   },
   "repository": {

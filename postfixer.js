@@ -49,7 +49,7 @@ exports = module.exports = function toPostfixNotation (exp) {
   // 3. after an operator
   var nega = true
   // skip handle when meet Math's functions
-  var skip = null
+  var skip = []
 
   var token = ''
   for (var i = 0, j = exp.length; i < j; i++) {
@@ -58,8 +58,8 @@ exports = module.exports = function toPostfixNotation (exp) {
     if (cur === SPACE) continue
 
     // handle Math's functions
-    if (skip) {
-      if (cur === MATH_EXTEND[skip]) {
+    if (skip.length > 0) {
+      if (cur === MATH_EXTEND[skip[skip.length - 1]]) {
         removeFunction()
         continue
       } else if (cur === ',') {
@@ -137,22 +137,27 @@ exports = module.exports = function toPostfixNotation (exp) {
     if (!token) token = 'abs'
     stack.push(token + MATH_EP)
     token = ''
-    skip = cur
+    skip.push(cur)
   }
 
   function removeFunction () {
-    out.push(token)
+    if (token) {
+      out.push(token)
+      token = ''
+    }
     while (stack.length > 0) {
       var o = stack.pop()
       out.push(o)
       if (o.substr(o.length - MATH_EP.length) === MATH_EP) break
     }
-    token = ''
-    skip = null
+    skip.pop()
   }
 
   function removeComma () {
-    out.push(token)
+    if (token) {
+      out.push(token)
+      token = ''
+    }
     while (stack.length > 0) {
       var o = stack.pop()
       if (o.substr(o.length - MATH_EP.length) === MATH_EP) {
@@ -162,7 +167,6 @@ exports = module.exports = function toPostfixNotation (exp) {
         out.push(o)
       }
     }
-    token = ''
   }
 
   function enableNega () {
