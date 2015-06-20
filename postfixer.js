@@ -63,7 +63,8 @@ exports = module.exports = function toPostfixNotation (exp) {
         removeFunction()
         continue
       } else if (cur === ',') {
-        
+        removeComma()
+        continue
       }
     }
 
@@ -148,6 +149,20 @@ exports = module.exports = function toPostfixNotation (exp) {
     }
     token = ''
     skip = null
+  }
+
+  function removeComma () {
+    out.push(token)
+    while (stack.length > 0) {
+      var o = stack.pop()
+      if (o.substr(o.length - MATH_EP.length) === MATH_EP) {
+        stack.push(o)
+        break
+      } else {
+        out.push(o)
+      }
+    }
+    token = ''
   }
 
   function enableNega () {

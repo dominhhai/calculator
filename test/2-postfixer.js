@@ -32,6 +32,7 @@ test('infix to postfix test', function (t) {
 test('func: infix to postfix test', function (t) {
   t.equal(postfixer('abs(1 - 2)'), '. 1 2 - abs.')
   t.equal(postfixer('min(10, 20, 30)'), '. 10 20 30 min.')
+  t.equal(postfixer('max(10, 20 + 5, 30 - 40)'), '. 10 20 5 + 30 40 - max.')
   // t.equal(postfixer('1 + 2 * 3'), '1 2 3 * +')
   // t.equal(postfixer('(1 + 2) * 3'), '1 2 + 3 *')
   // t.equal(postfixer('(abs[1] + 2) * 3 + E'), 'abs[1] 2 + 3 * E +')

@@ -4,9 +4,11 @@ var app = require('../app')
 test('func - postfix test', function (t) {
   t.equal(app('1 3 +'), 4)
 
-  t.equal(app('. 3 0 -2 19 min.'), -2)
+  t.equal(app('. 3 0 -2 10 - 19 min.'), -12)
 
   t.equal(app('. 3 0 -2 19 max.'), 19)
+
+  t.equal(app('. 3 20 + 0 -2 19 max.'), 23)
 
   t.equal(app('. -1 abs. 10 +'), 11)
 
