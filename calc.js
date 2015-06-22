@@ -24,16 +24,6 @@ const OPERATOR = {
 const MATH = Math
 
 const EXTEND = {
-  '(': function math (exp) {
-    var i = exp.indexOf('[')
-    if (i === -1) i = exp.indexOf('(')
-    if (i === -1) return null
-    var func = exp.substring(0, i)
-    var args = exp.substring(i + 1, exp.length - 1)
-    args = args.split(',')
-    args.unshift(func)
-    return exports.apply(null, args)
-  },
   '^': function pow (exp) {
     var i = exp.indexOf('^')
     if (i === -1) return null
