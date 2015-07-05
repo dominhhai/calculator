@@ -13,7 +13,9 @@ if (process.argv.length < 3) {
   console.error('    var scalc = require(\'scalc\')\n    var result = scalc(your_expression)\n')
   console.error('    E.x: var result = require(\'scalc\')(\'10 - E * |-10| - 0.5*(2^3)\')')
 } else {
-  var rst = require('./app')(process.argv.slice(2).join(' ').trim())
+  var exp = process.argv.slice(2).join(' ').trim()
+  console.log(exp, '=')
+  var rst = require('./app')(exp)
   console.log(rst)
   // copy to clipboard
   require('copy-paste').copy(rst, function () {
