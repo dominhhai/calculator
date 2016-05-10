@@ -20,6 +20,11 @@ const OPERATOR = {
   }
 }
 
+function factorial (n) {
+  if (n === 0) return 1
+  else return n * factorial(n - 1)
+}
+
 // define math common constants, and functions
 const MATH = Math
 
@@ -35,6 +40,10 @@ const EXTEND = {
     var i = exp.indexOf('|')
     if (i === -1) return null
     return Math.abs(exp.substring(1, exp.length - 1))
+  },
+  '!': function fact (exp) {
+    if (exp.charAt(exp.length - 1) !== '!') return null
+    return factorial(parseInt(exp.substr(0, exp.length - 1), 10))
   }
 }
 

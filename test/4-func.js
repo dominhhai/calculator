@@ -23,6 +23,12 @@ test('func - postfix test', function (t) {
   t.equal(app('. 10 20 5 + 30 40 - . 40 100 min. max.'), 40)
   t.equal(app('. 10 20 5 + . 40 100 min. 4 * 30 40 - max.'), 160)
 
+  t.equal(app('0!'), 1)
+  t.equal(app('1!'), 1)
+  t.equal(app('3!'), 6)
+  t.equal(app('4! 1 +'), 25)
+  t.equal(app('5! 100 -'), 20)
+
   t.end()
 })
 
@@ -37,6 +43,9 @@ test('func - prefix test', function (t) {
 
   t.equal(app('.max - 2 .pow 2 3 . .'), -6)
 
+  t.equal(app('+ 4! 1'), 25)
+  t.equal(app('- 5! 100'), 20)
+
   t.end()
 })
 
@@ -49,6 +58,9 @@ test('func - infix test', function (t) {
 
   t.equal(app('max(10, 20 + 5, 30 - 40, min ( 40, 100))'), 40)
   t.equal(app('max(10, 20 + 5, min ( 40, 100) * 4,30 - 40)'), 160)
+
+  t.equal(app('4! + 1'), 25)
+  t.equal(app('5! - 100'), 20)
 
   t.end()
 })
