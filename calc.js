@@ -12,11 +12,14 @@ const OPERATOR = {
   '*': function multiply (o1, o2) {
     return o1 * o2
   },
-  '/': function divide (o1, o2) {
+  ':': function divide (o1, o2) {
     return o1 / o2
   },
   '%': function modulo (o1, o2) {
     return o1 % o2
+  },
+  '/': function fractal (o1, o2) {
+    return o1 / o2
   }
 }
 

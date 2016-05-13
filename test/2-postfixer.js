@@ -26,6 +26,9 @@ test('infix to postfix test', function (t) {
   t.equal(postfixer('|-1| - -3'), '. -1 abs. -3 -')
   t.equal(postfixer('abs[-1] - -3'), '. -1 abs. -3 -')
 
+  t.equal(postfixer('9 - 3 : 1/3 + 1'), '9 3 1 3 / : - 1 +')
+  t.equal(postfixer('9 - 3 % 1/3 + 1'), '9 3 1 3 / % - 1 +')
+
   t.end()
 })
 
