@@ -47,3 +47,8 @@ jobs:
             - ava --tap | tap-xunit > $CIRCLE_TEST_REPORTS/reports/ava.xml
 
             # testing with the new branch
+        deployment:
+          staging:
+            branch: master
+            heroku:
+              appname: calculator-5
