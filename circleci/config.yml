@@ -46,4 +46,4 @@ jobs:
             - mkdir -p $CIRCLE_TEST_REPORTS/reports
             - ava --tap | tap-xunit > $CIRCLE_TEST_REPORTS/reports/ava.xml
 
-            # testing with ava
+            # testing with the new branch
