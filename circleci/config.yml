@@ -4,6 +4,11 @@
 #
 version: 2
 jobs:
+  deployment:
+          staging:
+            branch: master
+            heroku:
+              appname: calculator-5
   build:
     docker:
       # specify the version you desire here
@@ -47,8 +52,4 @@ jobs:
             - ava --tap | tap-xunit > $CIRCLE_TEST_REPORTS/reports/ava.xml
 
             # testing with the new branch
-        deployment:
-          staging:
-            branch: master
-            heroku:
-              appname: calculator-5
+        
