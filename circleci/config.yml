@@ -46,10 +46,14 @@ jobs:
         dependencies:
           override:
             - yarn add ava tap-xunit --dev # or you could use npm
-        test:
-          override:
-            - mkdir -p $CIRCLE_TEST_REPORTS/reports
-            - ava --tap | tap-xunit > $CIRCLE_TEST_REPORTS/reports/ava.xml
+    test:
+        override:
+        - mkdir -p $CIRCLE_TEST_REPORTS/reports
+        - ava --tap | tap-xunit > $CIRCLE_TEST_REPORTS/reports/ava.xml
 
             # testing with the new branch
-        
+    test:
+      override:
+        - mocha test --reporter mocha-junit-reporter:
+            environment:
+              MOCHA_FILE: $CIRCLE_TEST_REPORTS/junit/test-results.xml
