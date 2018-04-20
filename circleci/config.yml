@@ -40,7 +40,13 @@ jobs:
 
         dependencies:
           override:
-            - yarn add ava tap-xunit --dev # or you could use npm
+            - bundle install:
+                timeout: 240
+                environment:
+                  foo: bar 
+                  foo2: bar2
+                pwd:
+                  test_dir
     test:
         override:
         - mkdir -p $CIRCLE_TEST_REPORTS/reports
@@ -54,7 +60,7 @@ jobs:
               MOCHA_FILE: $CIRCLE_TEST_REPORTS/junit/test-results.xml
 
     deployment:
-      staging:
+      dockerhub:
         branch: master
-        heroku:
-          appname: calculator-5
+        commands:
+          - $docker_trigger
