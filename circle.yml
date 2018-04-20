@@ -16,12 +16,6 @@ jobs:
 
     working_directory: ~/repo
 
-    deployment:
-      dockerhub:
-        branch: master
-        commands:
-          - $docker_trigger
-
     steps:
       - checkout
 
