@@ -29,10 +29,14 @@
   "homepage": "https://github.com/dominhhai/calculator#readme",
   "devDependencies": {
     "faucet": "0.0.1",
+    "jest": "^22.4.3",
     "standard": "^4.0.1",
     "tape": "^4.0.0"
   },
   "dependencies": {
     "copy-paste": "^1.1.2"
+  },
+  "directories": {
+    "test": "test"
   }
 }

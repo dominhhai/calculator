@@ -1,3 +1,10 @@
 language: node_js
 node_js:
   - '0.10'
+addons:
+  sonar-scanner \
+    -Dsonar.projectKey=Calculator-5 \
+    -Dsonar.sources=. \
+    -Dsonar.host.url=https://sonarcloud.io \
+    -Dsonar.organization=paudiehealy-github \
+    -Dsonar.login=7379dd5dcd9dcb03159d98a84d27f61d5c88e7e0
