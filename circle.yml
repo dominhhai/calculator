@@ -4,6 +4,11 @@ deployment:
     commands:
       - $docker_trigger
 
+    # run tests!
+    - run: yarn test
+    - run: npm install
+    - run: npm test
+
 test:
   override:
     - mocha
